@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A487C09-2165-4C33-BA97-77EB6D94757C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CBKLMS.Dac</RootNamespace>
+    <AssemblyName>CBKLMS.Dac</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common_Dac.cs" />
+    <Compile Include="Login_Dac.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteMaster_Dac.cs" />
+    <Compile Include="UI_CM\Announcement_Dac.cs" />
+    <Compile Include="UI_CM\CommonCode_Dac.cs" />
+    <Compile Include="UI_CM\Holiday_Dac.cs" />
+    <Compile Include="UI_CM\Program_Dac.cs" />
+    <Compile Include="UI_CM\Role_Program_Dac.cs" />
+    <Compile Include="UI_CM\UserLogin_Dac.cs" />
+    <Compile Include="UI_CM\User_Dac.cs" />
+    <Compile Include="UI_Data\DataConfirm_Dac.cs" />
+    <Compile Include="UI_Data\DataInput_Dac.cs" />
+    <Compile Include="UI_MA\CustomerContact_Dac.cs" />
+    <Compile Include="UI_MA\Customer_Dac.cs" />
+    <Compile Include="UI_MA\Package_Dac.cs" />
+    <Compile Include="UI_MA\TestDetail_Dac.cs" />
+    <Compile Include="UI_MA\TestMethod_Dac.cs" />
+    <Compile Include="UI_MA\Unit_Dac.cs" />
+    <Compile Include="UI_Register\Quotation_Dac.cs" />
+    <Compile Include="UI_Register\Register_IN_Dac.cs" />
+    <Compile Include="UI_Register\Register_Out_Dac.cs" />
+    <Compile Include="UI_Report\ReportClose_Dac.cs" />
+    <Compile Include="UI_TotoList\TodoList_Dac.cs" />
+    <Compile Include="UI_WorkSheet\WorkSheet_Dac.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{f1d20841-d889-4bb5-bef0-967a435004a5}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntertekBase\IntertekBase.csproj">
+      <Project>{e481cf64-a562-4123-a985-098d7966e500}</Project>
+      <Name>IntertekBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

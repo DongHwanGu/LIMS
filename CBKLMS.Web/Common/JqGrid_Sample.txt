@@ -1,0 +1,211 @@
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication6._Default" %>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <style type="text/css">
+        .ui-jqgrid tr.jqgrow {
+            outline-style: none;
+            height: 30px;
+        }
+        .my-highlight { color: red; }
+        .ui-jqgrid-cell-wrapper {
+            font-weight:bold;
+        }
+        .ui-jqgrid .ui-jqgrid-htable th div {
+            overflow: hidden;
+            position: relative;
+            height: 17px;
+            font-family: 'Malgun Gothic','나눔고딕', "돋움", dotum;
+            font-size: 15px;
+        }
+
+          .ui-jqgrid .ui-jqgrid-htable{
+
+        	overflow: hidden; 
+
+        	position:relative; 
+
+        	height:17px;
+
+        	font-family:'Malgun Gothic','나눔고딕', "돋움", dotum;
+
+        	font-size:12px;
+        }
+
+        .ui-jqgrid-btable, .ui-pg-table  {
+        	font-family:'Malgun Gothic','나눔고딕', "돋움", dotum;
+        }
+
+
+    </style>
+
+
+
+    <script>
+        $(function ()  {
+            "use strict";
+            var mydata = [
+                    { id: "1", invdate: "2007-10-01", name: "test", note: "note", amount: "", tax: "", closed: true, ship_via: "TN", total: "" },
+                    { id: "2", invdate: "2007-09-01", name: "test", note: "note2", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "3", invdate: "2007-09-01", name: "test", note: "note3", amount: "400.00", tax: "30.00", closed: false, ship_via: "FE", total: "430.00" },
+                    { id: "4", invdate: "2007-10-04", name: "test4 test4 test4", note: "note4", amount: "200.00", tax: "10.00", closed: true, ship_via: "TN", total: "210.00" },
+                    { id: "5", invdate: "2007-10-31", name: "test5", note: "note5", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "6", invdate: "2007-09-06", name: "test6", note: "note6", amount: "400.00", tax: "30.00", closed: false, ship_via: "FE", total: "430.00" },
+                    { id: "7", invdate: "2007-10-04", name: "test7", note: "note7", amount: "200.00", tax: "10.00", closed: true, ship_via: "TN", total: "210.00" },
+                    { id: "8", invdate: "2007-10-03", name: "test8", note: "note8", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "9", invdate: "2007-09-01", name: "test9 test9 test9 test9 test9", note: "note9", amount: "400.00", tax: "30.00", closed: false, ship_via: "TN", total: "430.00" },
+                    { id: "11", invdate: "2007-09-08", name: "test10", note: "note10", amount: "500.00", tax: "30.00", closed: true, ship_via: "TN", total: "530.00" },
+                    { id: "12", invdate: "2007-09-08", name: "test11", note: "note11", amount: "500.00", tax: "30.00", closed: false, ship_via: "FE", total: "530.00" },
+                    { id: "13", invdate: "2007-09-10", name: "test12", note: "note12", amount: "500.00", tax: "30.00", closed: false, ship_via: "FE", total: "530.00" },
+                    { id: "14", invdate: "2007-09-01", name: "test", note: "note2", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "330", invdate: "2007-09-01", name: "test", note: "note3", amount: "400.00", tax: "30.00", closed: false, ship_via: "FE", total: "430.00" },
+                    { id: "340", invdate: "2007-10-04", name: "test4 test4 test4", note: "note4", amount: "200.00", tax: "10.00", closed: true, ship_via: "TN", total: "210.00" },
+                    { id: "350", invdate: "2007-10-31", name: "test5", note: "note5", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "360", invdate: "2007-09-06", name: "test6", note: "note6", amount: "400.00", tax: "30.00", closed: false, ship_via: "FE", total: "430.00" },
+                    { id: "370", invdate: "2007-10-04", name: "test7", note: "note7", amount: "200.00", tax: "10.00", closed: true, ship_via: "TN", total: "210.00" },
+                    { id: "380", invdate: "2007-10-03", name: "test8", note: "note8", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "390", invdate: "2007-09-01", name: "test9 test9 test9 test9 test9", note: "note9", amount: "400.00", tax: "30.00", closed: false, ship_via: "TN", total: "430.00" },
+                    { id: "3100", invdate: "2007-09-08", name: "test10", note: "note10", amount: "500.00", tax: "30.00", closed: true, ship_via: "TN", total: "530.00" },
+                    { id: "3110", invdate: "2007-09-08", name: "test11", note: "note11", amount: "500.00", tax: "30.00", closed: false, ship_via: "FE", total: "530.00" },
+                    { id: "3120", invdate: "2007-09-10", name: "test12", note: "note12", amount: "500.00", tax: "30.00", closed: false, ship_via: "FE", total: "530.00" },
+                    { id: "620", invdate: "2007-09-01", name: "test", note: "note2", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "630", invdate: "2007-09-01", name: "test", note: "note3", amount: "400.00", tax: "30.00", closed: false, ship_via: "FE", total: "430.00" },
+                    { id: "640", invdate: "2007-10-04", name: "test4 test4 test4", note: "note4", amount: "200.00", tax: "10.00", closed: true, ship_via: "TN", total: "210.00" },
+                    { id: "650", invdate: "2007-10-31", name: "test5", note: "note5", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "660", invdate: "2007-09-06", name: "test6", note: "note6", amount: "400.00", tax: "30.00", closed: false, ship_via: "FE", total: "430.00" },
+                    { id: "670", invdate: "2007-10-04", name: "test7", note: "note7", amount: "200.00", tax: "10.00", closed: true, ship_via: "TN", total: "210.00" },
+                    { id: "680", invdate: "2007-10-03", name: "test8", note: "note8", amount: "300.00", tax: "20.00", closed: false, ship_via: "FE", total: "320.00" },
+                    { id: "690", invdate: "2007-09-01", name: "test9 test9 test9 test9 test9", note: "note9", amount: "400.00", tax: "30.00", closed: false, ship_via: "TN", total: "430.00" },
+                    { id: "6100", invdate: "2007-09-08", name: "test10", note: "note10", amount: "500.00", tax: "30.00", closed: true, ship_via: "TN", total: "530.00" },
+                    { id: "6110", invdate: "2007-09-08", name: "test11", note: "note11", amount: "500.00", tax: "30.00", closed: false, ship_via: "FE", total: "530.00" },
+                    { id: "6120", invdate: "2007-09-10", name: "test12", note: "note12", amount: "500.00", tax: "30.00", closed: false, ship_via: "FE", total: "530.00" },
+
+            ],
+                $grid = $("#list"),
+                initDateEdit = function (elem) {
+                    $(elem).datepicker({
+                        dateFormat: "dd-M-yy",
+                        autoSize: true,
+                        changeYear: true,
+                        changeMonth: true,
+                        showButtonPanel: true,
+                        showWeek: true
+                    });
+                },
+                initDateSearch = function (elem) {
+                    setTimeout(function () {
+                        initDateEdit(elem);
+                    }, 100);
+                };
+
+            $grid.jqGrid({
+                data: mydata,
+                colNames: ["", "Client", "Date", "Amount", "Tax", "Total", "Closed", "Shipped via", "Notes"],
+                colModel: [
+                    { name: "act", template: "actions" },
+                    {
+                        name: "name", align: "center", width: 200, editrules: { required: true },
+                        searchoptions: { sopt: ["cn", "bw", "ew", "eq", "bn", "nc", "en"] }
+                    },
+                    {
+                        name: "invdate", width: 200, align: "center", sorttype: "date", frozen: true,
+                        formatter: "date", formatoptions: { newformat: "d-M-Y" }, datefmt: "d-M-Y",
+                        editoptions: { dataInit: initDateEdit },
+                        searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDateSearch }
+                    },
+                    { name: "amount", width: 200, template: "number" },
+                    { name: "tax", width: 200, template: "number", autoResizableMinColSize: 40 },
+                    { name: "total", width: 200, template: "number" },
+                    { name: "closed", width: 200, template: "booleanCheckboxFa", firstsortorder: "desc" },
+                    {
+                        name: "ship_via", width: 200, align: "center", formatter: "select",
+                        edittype: "select", editoptions: { value: "FE:FedEx;TN:TNT;IN:Intim", defaultValue: "IN" },
+                        stype: "select", searchoptions: { sopt: ["eq", "ne"], value: ":Any;FE:FedEx;TN:TNT;IN:IN" }
+                    },
+                    { name: "note", width: 200, edittype: "textarea", sortable: false }
+                ],
+                cmTemplate: { autoResizable: true, editable: true },
+                iconSet: "fontAwesome",
+                rowNum: 100,
+                autoResizing: { compact: true },
+                rowList: [5, 10, 20, "10000:All"],
+                viewrecords: true,
+                autoencode: true,
+                sortable: true,
+                toppager: true,
+                pager: true,
+                rownumbers: true,
+                sortname: "invdate",
+                sortorder: "desc",
+                multiselect: true,
+                multiPageSelection: true,
+                selarrrow: ["40", "90", "110"],
+                reloadGridOptions: { current: true },
+                inlineEditing: { keys: true },
+                navOptions: { add: false, edit: false, del: false, search: false },
+                searching: { searchOnEnter: false, searchOperators: false },
+                autowidth: true,
+                shrinkToFit: false,
+                loadComplete: function () {
+                    // 2 is zero-base index of the column 'name' ('Client'). Every from the options
+                    // multiselect:true, rownumbers:true and subGrid:true will increase
+                    // the index by 1 because the option inserts additional columns
+                    $("#6 td:eq(2)", $grid[0]).css({ color: 'red' });
+
+                    $grid.jqGrid('setCell', "12", "name", "", { color: 'red' });
+                    $grid.jqGrid('setCell', "10", 'name', '', 'my-highlight');
+                    $grid.jqGrid('setCell', "8", 'name', '', 'ui-state-error ui-state-error-text');
+
+                    $grid.jqGrid('setCell', "4", "name", "", { 'background-color': 'yellow', 'background-image': 'none' });
+                    $grid.jqGrid('setCell', "3", "name", "", 'ui-state-highlight');
+                },
+                //grouping: true,
+                //groupingView: {
+                //    groupField: ['name'],
+                //    groupColumnShow : [true],
+                //    groupText : ['<b>{0} - {1} Item(s)</b>'],
+                //    groupCollapse : true,
+                //    //groupOrder: ['desc']   		
+                //},
+                //onSelectRow: function (rowid, status, e) {
+                //    var $self = $(this), savedRow = $self.jqGrid("getGridParam", "savedRow");
+
+                //    if (savedRow.length > 0 && savedRow[0].id !== rowid) {
+                //        $self.jqGrid("restoreRow", savedRow[0].id);
+                //    }
+
+                //    $self.jqGrid("editRow", rowid, { focusField: e.target });
+                //},
+                ondblClickRow: function (rowid, iRow, iCol, e) {
+                    //var $self = $(this), savedRow = $self.jqGrid("getGridParam", "savedRow");
+                    //if (savedRow.length > 0 && savedRow[0].id !== rowid) {
+                    //    $self.jqGrid("restoreRow", savedRow[0].id);
+                    //}
+                    //$self.jqGrid("editRow", rowid, { focusField: e.target });
+                    //alert(iRow);
+                },
+                height:300,
+                caption: "List"
+            })
+            .jqGrid("navGrid")
+            .jqGrid("filterToolbar")
+            .jqGrid("gridResize");
+
+
+
+        });
+
+        
+    </script>
+
+
+    <div class="row" id="content">
+        <div class="" >
+            <div class="" style="border:1px solid #000;">
+                <table id="list"></table>
+            </div>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+
+</asp:Content>

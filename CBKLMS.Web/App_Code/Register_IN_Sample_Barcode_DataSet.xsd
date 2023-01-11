@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Register_IN_Sample_Barcode_DataSet" targetNamespace="http://tempuri.org/Register_IN_Sample_Barcode_DataSet.xsd" xmlns:mstns="http://tempuri.org/Register_IN_Sample_Barcode_DataSet.xsd" xmlns="http://tempuri.org/Register_IN_Sample_Barcode_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Register_IN_Sample_Barcode_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Register_IN_Sample_Barcode_DataSet" msprop:Generator_UserDSName="Register_IN_Sample_Barcode_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="REQ_CODE" msprop:Generator_ColumnVarNameInTable="columnREQ_CODE" msprop:Generator_ColumnPropNameInRow="REQ_CODE" msprop:Generator_ColumnPropNameInTable="REQ_CODEColumn" msprop:Generator_UserColumnName="REQ_CODE" type="xs:string" minOccurs="0" />
+              <xs:element name="REGISTER_DT_NM" msprop:Generator_ColumnVarNameInTable="columnREGISTER_DT_NM" msprop:Generator_ColumnPropNameInRow="REGISTER_DT_NM" msprop:Generator_ColumnPropNameInTable="REGISTER_DT_NMColumn" msprop:Generator_UserColumnName="REGISTER_DT_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="REPORT_DUE_DT_NM" msprop:Generator_ColumnVarNameInTable="columnREPORT_DUE_DT_NM" msprop:Generator_ColumnPropNameInRow="REPORT_DUE_DT_NM" msprop:Generator_ColumnPropNameInTable="REPORT_DUE_DT_NMColumn" msprop:Generator_UserColumnName="REPORT_DUE_DT_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="CUST_NM" msprop:Generator_ColumnVarNameInTable="columnCUST_NM" msprop:Generator_ColumnPropNameInRow="CUST_NM" msprop:Generator_ColumnPropNameInTable="CUST_NMColumn" msprop:Generator_UserColumnName="CUST_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="SAMPLE_NM" msprop:Generator_ColumnVarNameInTable="columnSAMPLE_NM" msprop:Generator_ColumnPropNameInRow="SAMPLE_NM" msprop:Generator_ColumnPropNameInTable="SAMPLE_NMColumn" msprop:Generator_UserColumnName="SAMPLE_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="SAMPLE_GET_PLACE" msprop:Generator_ColumnVarNameInTable="columnSAMPLE_GET_PLACE" msprop:Generator_ColumnPropNameInRow="SAMPLE_GET_PLACE" msprop:Generator_ColumnPropNameInTable="SAMPLE_GET_PLACEColumn" msprop:Generator_UserColumnName="SAMPLE_GET_PLACE" type="xs:string" minOccurs="0" />
+              <xs:element name="SAMPLE_TYPE_CD_NM" msprop:Generator_ColumnVarNameInTable="columnSAMPLE_TYPE_CD_NM" msprop:Generator_ColumnPropNameInRow="SAMPLE_TYPE_CD_NM" msprop:Generator_ColumnPropNameInTable="SAMPLE_TYPE_CD_NMColumn" msprop:Generator_UserColumnName="SAMPLE_TYPE_CD_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="SAMPLE_CNT" msprop:Generator_ColumnVarNameInTable="columnSAMPLE_CNT" msprop:Generator_ColumnPropNameInRow="SAMPLE_CNT" msprop:Generator_ColumnPropNameInTable="SAMPLE_CNTColumn" msprop:Generator_UserColumnName="SAMPLE_CNT" type="xs:string" minOccurs="0" />
+              <xs:element name="BAR_CODE" msprop:Generator_ColumnVarNameInTable="columnBAR_CODE" msprop:Generator_ColumnPropNameInRow="BAR_CODE" msprop:Generator_ColumnPropNameInTable="BAR_CODEColumn" msprop:Generator_UserColumnName="BAR_CODE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

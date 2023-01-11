@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBKLMS.Biz", "CBKLMS.Biz\CBKLMS.Biz.csproj", "{27A48E5B-A2F6-4C3B-BE04-D97F0045750C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBKLMS.Dac", "CBKLMS.Dac\CBKLMS.Dac.csproj", "{4A487C09-2165-4C33-BA97-77EB6D94757C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F1D20841-D889-4BB5-BEF0-967A435004A5}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CBKLMS.Web(2)", "http://localhost:57692", "{A4031B88-7B36-4F0D-9F62-99E66DBA4AD3}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{27a48e5b-a2f6-4c3b-be04-d97f0045750c}|CBKLMS.Biz.dll;{4A487C09-2165-4C33-BA97-77EB6D94757C}|CBKLMS.Dac.dll;{F1D20841-D889-4BB5-BEF0-967A435004A5}|DataAccess.dll;{E481CF64-A562-4123-A985-098D7966E500}|IntertekBase.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57692"
+		Debug.AspNetCompiler.PhysicalPath = "CBKLMS.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57692\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57692"
+		Release.AspNetCompiler.PhysicalPath = "CBKLMS.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57692\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "CBKLMS.Web\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntertekBase", "IntertekBase\IntertekBase.csproj", "{E481CF64-A562-4123-A985-098D7966E500}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27A48E5B-A2F6-4C3B-BE04-D97F0045750C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27A48E5B-A2F6-4C3B-BE04-D97F0045750C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27A48E5B-A2F6-4C3B-BE04-D97F0045750C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27A48E5B-A2F6-4C3B-BE04-D97F0045750C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A487C09-2165-4C33-BA97-77EB6D94757C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A487C09-2165-4C33-BA97-77EB6D94757C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A487C09-2165-4C33-BA97-77EB6D94757C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A487C09-2165-4C33-BA97-77EB6D94757C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D20841-D889-4BB5-BEF0-967A435004A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D20841-D889-4BB5-BEF0-967A435004A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D20841-D889-4BB5-BEF0-967A435004A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D20841-D889-4BB5-BEF0-967A435004A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4031B88-7B36-4F0D-9F62-99E66DBA4AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4031B88-7B36-4F0D-9F62-99E66DBA4AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4031B88-7B36-4F0D-9F62-99E66DBA4AD3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4031B88-7B36-4F0D-9F62-99E66DBA4AD3}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E481CF64-A562-4123-A985-098D7966E500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E481CF64-A562-4123-A985-098D7966E500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E481CF64-A562-4123-A985-098D7966E500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E481CF64-A562-4123-A985-098D7966E500}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,948 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server"> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <!-- jQuery -->
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/SlickGrid/firebugx.js"></script>
+    <script src="/Scripts/SlickGrid/jquery.event.drag-2.2.js"></script>
+    <script src="/Scripts/SlickGrid/jquery.jsonp-2.4.min.js"></script>
+    <script src="/Scripts/SlickGrid/jquery.mousewheel.js"></script>
+    <script src="/Scripts/SlickGrid/slick.autotooltips.js"></script>
+    <script src="/Scripts/SlickGrid/slick.checkboxselectcolumn.js"></script>
+    <script src="/Scripts/SlickGrid/slick.colfix.js"></script>
+    <script src="/Scripts/SlickGrid/slick.columnpicker.js"></script>
+    <script src="/Scripts/SlickGrid/slick.compositeeditor.js"></script>
+    <script src="/Scripts/SlickGrid/slick.core.js"></script>
+    <script src="/Scripts/SlickGrid/slick.dataview.js"></script>
+    <script src="/Scripts/SlickGrid/slick.editor.js"></script>
+    <script src="/Scripts/SlickGrid/slick.formatters.js"></script>
+    <script src="/Scripts/SlickGrid/slick.grid.js"></script>
+    <script src="/Scripts/SlickGrid/slick.groupitemmetadataprovider.js"></script>
+    <script src="/Scripts/SlickGrid/slick.pager.js"></script>
+    <script src="/Scripts/SlickGrid/slick.remotemodel.js"></script>
+    <script src="/Scripts/SlickGrid/slick.rowselectionmodel.js"></script>
+    <script src="/Scripts/SlickGrid/slick.headerbuttons.js"></script>
+    <script src="/Scripts/SlickGrid/slick.cellselectionmodel.js"></script>
+    <script src="/Scripts/SlickGrid/slick.cellrangeselector.js"></script>
+    <script src="/Scripts/SlickGrid/slick.cellrangedecorator.js"></script>
+
+    <link href="/Content/SlickGrid/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+    <link href="/Content/SlickGrid/slick-default-theme.css" rel="stylesheet" />
+    <link href="/Content/SlickGrid/slick.columnpicker.css" rel="stylesheet" />
+    <link href="/Content/SlickGrid/slick.grid.css" rel="stylesheet" />
+    <link href="/Content/SlickGrid/slick.pager.css" rel="stylesheet" />
+    <link href="/Content/SlickGrid/slick.headerbuttons.css" rel="stylesheet" />
+
+    <script src="/Scripts/jquery-ui.min.js"></script>
+    <script src="/Scripts/Site.js"></script>
+
+    
+
+    <%--<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />--%>
+    <!-- Bootstrap -->
+    <link href="/Common/gentelella-master/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="/Common/gentelella-master/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- NProgress -->
+    <link href="/Common/gentelella-master/vendors/nprogress/nprogress.css" rel="stylesheet"/>
+    <!-- iCheck -->
+    <link href="/Common/gentelella-master/vendors/iCheck/skins/flat/green.css" rel="stylesheet"/>
+    <!-- bootstrap-progressbar -->
+    <link href="/Common/gentelella-master/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"/>
+    <!-- JQVMap -->
+    <link href="/Common/gentelella-master/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="/Common/gentelella-master/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"/>
+
+    <!-- NProgress -->
+    <link href="/Common/gentelella-master/vendors/nprogress/nprogress.css" rel="stylesheet" />
+    <link href="/Common/gentelella-master/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet"/>
+    <link href="/Common/gentelella-master/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print"/>
+
+    <!-- Custom Theme Style -->
+    <link href="/Common/gentelella-master/build/css/custom.css" rel="stylesheet"/>
+
+    <link href="/Content/Site.css" rel="stylesheet" />
+    
+    <style>
+        .bgBlack { background:black; }
+    </style>
+    <script>
+       
+    </script>
+</head>
+<body class="nav-md">
+    <form runat="server" style="margin:0; padding:0; background:black;">
+        <asp:ScriptManager runat="server" ID="ScriptManager1">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <%--<asp:ScriptReference Name="jquery" />--%>
+                <%--<asp:ScriptReference Name="bootstrap" />--%>
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+
+
+            </Scripts>
+        </asp:ScriptManager>
+     
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col" style="position:fixed;">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="/Main/SiteMain.aspx" class="site_title" style="">
+                                <table>
+                                    <tr>
+                                        <td><img src="/Common/Images/Logo/Logo2.png" style="width:auto; height:35px;"  /></td>
+                                        <td style="padding:5px 0 0 10px;"><span style="font-weight:bold; color:#fdc501;">e-Works_CBK</span>
+                                            <asp:Label Text="" runat="server" id="lblDataBase"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                               <%-- <img src="/Common/Images/Logo/Logo2.png" style="width:auto; height:35px; margin-top:10px;"  />
+                                <span style="font-weight:bold;">CBKLMS</span>--%>
+                            </a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_pic">
+                                <%--<img src="images/img.jpg" alt="..." class="img-circle profile_img">--%>
+                            </div>
+                            <div class="profile_info">
+                                <span>Welcome,</span>
+                                <h2 id="txtmain_welcome_user" style="color:#fdc501; margin-left:20px;"></h2>
+                            </div>
+                        </div>
+                        <!-- /menu profile quick info -->
+
+                        <br />
+
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <ul class="nav side-menu" id="Main_side-menu">
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-footer hidden-small">
+                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="/Login.aspx">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                <table>
+                                    <tr>
+                                        <td><a id="menu_toggle"><i class="fa fa-bars"></i></a></td>
+                                        <td>
+                                            <div class="input-group mgn0">
+                                                <input type="text" class="form-control input-sm" id="txttodolist_search" name="txttodolist_search" style="width: 120px;" placeholder="접수번호" />
+                                                <div class="input-group-btn">
+                                                    <button type="button" class="btn btn-default input-sm" id="btntodolist_search" 
+                                                        style="min-height: 1px; min-width: 1px; line-height: normal">
+                                                        <span class="glyphicon glyphicon-search"></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                        <li><a href="/Login.aspx"><i class="fa fa-sign-out pull-right"></i>Log Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+                <div id="main_Top_Path">
+                    <span><a href="/Main/SiteMain.aspx"><span style="font-size:1.3em;" class="fa fa-home"></span> Home > </a></span><span id="main_Top_Path_UP"></span> > <span id="main_Top_Path_CH"></span>
+                </div>
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+                <!-- /page content -->
+
+                <!-- footer content -->
+                
+                <!-- /footer content -->
+            </div>
+        </div>
+
+    </form>
+    <div style="padding:20px; background: #010101; margin-top: 15px; border-top: 2px solid #fdc501; text-align:center; color:#808080;">
+        1/F, A-Ju Digital Tower, 7, Achasan-ro 5-gil, Seongdong-gu, Seoul 133-833 Korea. Tel.82-2-6090-9550 / Fax.82-2-3409-0026<br />
+        Copyright ⓒ 2016. Intertek Testing Services Korea Ltd. All Rights Reserved.
+    </div>
+
+    <!-- jQuery -->
+    <script src="/Common/gentelella-master/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/Scripts/jquery.number.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/Common/gentelella-master/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/Common/gentelella-master/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/Common/gentelella-master/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="/Common/gentelella-master/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/Common/gentelella-master/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="/Common/gentelella-master/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="/Common/gentelella-master/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="/Common/gentelella-master/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/Common/gentelella-master/vendors/Flot/jquery.flot.js"></script>
+    <script src="/Common/gentelella-master/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/Common/gentelella-master/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/Common/gentelella-master/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/Common/gentelella-master/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/Common/gentelella-master/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/Common/gentelella-master/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/Common/gentelella-master/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/Common/gentelella-master/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/Common/gentelella-master/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/Common/gentelella-master/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/Common/gentelella-master/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="/Common/gentelella-master/vendors/moment/min/moment.min.js"></script>
+    <script src="/Common/gentelella-master/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="/Scripts/jquery-ui.custom.js"></script>
+    <script src="/Scripts/jquery.ui.datepicker-ko.js"></script>
+    
+    <!-- NProgress -->
+    <script src="/Common/gentelella-master/vendors/nprogress/nprogress.js"></script>
+    <!-- FullCalendar -->
+    <script src="/Common/gentelella-master/vendors/moment/min/moment.min.js"></script>
+    <script src="/Common/gentelella-master/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/Common/gentelella-master/build/js/custom.js"></script>
+
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/ui-lightness/jquery-ui.min.css">--%>
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/ui-darkness/jquery-ui.min.css">--%>
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/blitzer/jquery-ui.min.css">--%>
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/hot-sneaks/jquery-ui.min.css">--%>
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/trontastic/jquery-ui.min.css">--%>
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/smoothness/jquery-ui.min.css">--%>
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/Base/jquery-ui.min.css">--%>
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/start/jquery-ui.min.css">--%>
+    <%--<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/black-tie/jquery-ui.min.css">--%>
+    <%--<link href="/Content/demos/demo2-customized/css/ui-darkness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+        <link href="/Content/demos/demo2-customized/css/style.css" rel="stylesheet" />--%>
+
+
+    <%--<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="/Content/ui.jqgrid.css" rel="stylesheet" />
+    <link href="/Content/JqGrid_Common.css" rel="stylesheet" />
+
+    <script src="/Scripts/free-jqGrid/i18n/grid.locale-en.js"></script>
+    <script>
+        $.jgrid = $.jgrid || {};
+        $.jgrid.no_legacy_api = true;
+    </script>
+    <script src="/Scripts/free-jqGrid/jquery.jqgrid.src.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+    <script>
+        var strreg_no = '';
+        // 메뉴 생성
+        $(document).ready(function () {
+            var count = 0; // 모달이 열릴 때 마다 count 해서  z-index값을 높여줌
+            $(document).on('show.bs.modal', '.modal', function () {
+                var zIndex = 1040 + (10 * count);
+                $(this).css('z-index', zIndex);
+                setTimeout(function () {
+                    $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+                }, 0);
+                count = count + 1
+            });
+
+
+
+            // multiple modal Scrollbar fix
+
+            $(document).on('hidden.bs.modal', '.modal', function () {
+                $('.modal:visible').length && $(document.body).addClass('modal-open');
+            });
+
+            $('#txtmain_welcome_user').empty();
+            $('#txtmain_welcome_user').text('<%= IntertekBase.CookieRoaster.GetCookie("CBKLMS_UserCookies", "USER_ENM") %>');
+
+            // 모바일 판단 초반 메뉴 닫기
+            var filter = "win16|win32|win64|mac|macintel";
+            if (navigator.platform) {
+                if (filter.indexOf(navigator.platform.toLowerCase()) < 0) { //mobile 
+                    $('#menu_toggle').click();
+                } else { //pc 
+                    if (Modernizr.mq('(max-width: 1400px)')) {
+                        $('#menu_toggle').click();
+                    } else {
+                        $('#main_Top_Path').css('padding-left', $('#sidebar-menu').width() + 15);
+                        //...
+                    }
+                }
+            }
+
+            // 초기 메뉴
+            GetMainMenuList();
+
+            $('#btntodolist_search').click(function () {
+                strreg_no = $('#txttodolist_search').val();
+                $(location).attr('href', '/UI_TodoList/TodoList.aspx?reg_no=' + strreg_no);
+                //$('#modalreg_data').modal();
+            });
+            $("#txttodolist_search").keypress(function (e) {
+                if (e.which == 13) {
+                    strreg_no = $('#txttodolist_search').val();
+                    $(location).attr('href', '/UI_TodoList/TodoList.aspx?reg_no=' + strreg_no);
+                    //$('#modalreg_data').modal();
+                    return false;
+                }
+            });
+
+            $('#modalreg_data').on('shown.bs.modal', function (e) {
+                $('#modalreg_data_row').children().remove();
+                var url = '/UI_TodoList/TotoListPopup.aspx/?reg_no=' + $('#txttodolist_search').val();
+                var strIfframe = '<iframe id="" src="' + url + '" style="width: 100%; height: 100%; border: none;" ></iframe>';
+                $('#modalreg_data_row').append(strIfframe);
+            });
+
+            // 파일 모달 초기화
+            $('#modalMailSend').on('shown.bs.modal', function (e) {
+                $('#modal_Mail_row').children().remove();
+                var url = '/Popup_MailSend.aspx/?page=' + mailsend_obj.page + '&key=' + mailsend_obj.key;
+                var strIfframe = '<iframe id="frame_fileupload" src="' + url + '" style="width: 100%; height: 100%; border: none;" ></iframe>';
+                $('#modal_Mail_row').append(strIfframe);
+            });
+
+
+            // 파일 모달 초기화
+            $('#modalExcelupload').on('shown.bs.modal', function (e) {
+                $('#modal_Excelupload_row').children().remove();
+                var url = '/Popup_ExcelUpload.aspx/?page=' + excelupload_obj.page + '&key=' + excelupload_obj.key;
+                var strIfframe = '<iframe id="frame_fileupload" src="' + url + '" style="width: 100%; height: 100%; border: none;" ></iframe>';
+                $('#modal_Excelupload_row').append(strIfframe);
+            });
+
+            // 파일 모달 초기화
+            $('#modalfileupload').on('shown.bs.modal', function (e) {
+                $('#modal_fileupload_row').children().remove();
+                var url = '/Popup_FileUpload.aspx/?page=' + fileupload_obj.page + '&key=' + fileupload_obj.key;
+                var strIfframe = '<iframe id="frame_fileupload" src="' + url + '" style="width: 100%; height: 100%; border: none;" ></iframe>';
+                $('#modal_fileupload_row').append(strIfframe);
+            });
+
+            // 파일 뷰어
+            $('#modalReportView').on('shown.bs.modal', function (e) {
+                $('#modalReportView_row').children().remove();
+                var url = '/ReportFiles/ReportViewer_Popup.aspx/?page=' + fileView_obj.page + '&key=' + fileView_obj.key;
+                var strIfframe = '<iframe src="' + url + '" style="width: 100%; height: 100%; border: none;" ></iframe>';
+                $('#modalReportView_row').append(strIfframe);
+            });
+        })
+
+        /***************************************************/
+        // Side Bar 사용자에 따른 메뉴 조회
+        /***************************************************/
+        var arrProgramData = [];
+        function GetMainMenuList() {
+            var Gparam = {
+                IV_ROLE_ID: '<%= IntertekBase.CookieRoaster.GetCookie("CBKLMS_UserCookies", "CBKLMS_ROLE_ID") %>'
+            }
+            $.ajax({
+                url: "/WebService/SiteMaster_Service.asmx/GetMainMenuList",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ 'Gparam': Gparam }),
+                dataType: "json",
+                success: GetMainMenuList_Success,
+                beforeSend: function () {
+                    //$('.wrap-loading').removeClass('display-none');
+                },
+                complete: function () {
+                    //$('.wrap-loading').addClass('display-none');
+                },
+                error: function (request, status, error) {
+                    fn_error(request.responseText);
+                }
+            });
+        }
+        function GetMainMenuList_Success(response) {
+            var json = $.parseJSON(response.d);
+            var dt = json.result;
+
+            var strMenu = "";
+
+            for (var i = 0; i < dt.length; i++) {
+                if (dt[i].PROGRAM_LVL == "0") {
+                    strMenu += '<li><a><i class="' + dt[i].PROGRAM_ICON + '"></i>' + dt[i].PROGRAM_NM + ' <span class="fa fa-chevron-down"></span></a>';
+                    strMenu += SetSubMainMenu(dt[i].PROGRAM_ID, dt);
+                }
+            }
+            strMenu += "</li>";
+            
+            $('#sidebar-menu div ul').append(strMenu);
+            $SIDEBAR_MENU = $('#sidebar-menu');
+            $SIDEBAR_MENU.find('a').on('click', function (ev) {
+                //console.log('clicked - sidebar_menu');
+                var $li = $(this).parent();
+
+                if ($li.is('.active')) {
+                    $li.removeClass('active active-sm');
+                    $('ul:first', $li).slideUp(function () {
+                        setContentHeight();
+                    });
+                } else {
+                    // prevent closing menu if we are on child menu
+                    if (!$li.parent().is('.child_menu')) {
+                        $SIDEBAR_MENU.find('li').removeClass('active active-sm');
+                        $SIDEBAR_MENU.find('li ul').slideUp();
+                    } else {
+                        if ($BODY.is(".nav-sm")) {
+                            $li.parent().find("li").removeClass("active active-sm");
+                            $li.parent().find("li ul").slideUp();
+                        }
+                    }
+                    $li.addClass('active');
+
+                    $('ul:first', $li).slideDown(function () {
+                        setContentHeight();
+                    });
+                }
+            });
+
+            // 파일루트 화면에 출력
+            fn_SetProgramLink('<%= MasterPageName%>');
+        }
+        function SetSubMainMenu(program_id, dt) {
+            var strMenu = '<ul class="nav child_menu">';
+
+            for (var i = 0; i < dt.length; i++) {
+                if (dt[i].UP_PROGRAM_ID == program_id) {
+
+                    arrProgramData.push({ PROGRAM_ID: dt[i].PROGRAM_ID });
+
+                    strMenu +=
+                        "<li><a href='/" + dt[i].PROGRAM_CONTROLLER + "/" + dt[i].PROGRAM_VIEW + ".aspx'>" + dt[i].PROGRAM_NM + "</a></li>";
+                }
+            }
+            strMenu += "</ul>";
+
+            return strMenu;
+        }
+        var setContentHeight = function () {
+            // reset height
+            $RIGHT_COL.css('min-height', $(window).height());
+
+            var bodyHeight = $BODY.outerHeight(),
+                footerHeight = $BODY.hasClass('footer_fixed') ? -10 : $FOOTER.height(),
+                leftColHeight = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
+                contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
+
+            // normalize content
+            contentHeight -= $NAV_MENU.height() + footerHeight;
+
+            $RIGHT_COL.css('min-height', contentHeight - 100);
+        };
+
+        /***************************************************/
+        // 파일루트 화면에 출력
+        /***************************************************/
+        var fn_SetProgramLink = function (pageName) {
+            if (pageName) {
+                $.ajax({
+                    url: "/WebService/SiteMaster_Service.asmx/fn_SetProgramLink",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: "{pageName:'" + pageName + "'}",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        // Note - Json개체 변환
+                        var jsonData = $.parseJSON(response.d);
+
+                        if (jsonData.result.length > 0) {
+                            $('#main_Top_Path_UP').text(jsonData.result[0].UP_NM);
+                            $('#main_Top_Path_CH').text(jsonData.result[0].CHILDE_NM);
+
+                            if (Modernizr.mq('(min-width: 1400px)')) {
+                                // 선택한곳 찾아서 활성화
+                                $('#Main_side-menu > li').each(function () {
+                                    var menuName = $.trim(this.childNodes[0].text);
+                                    if (menuName != undefined && menuName == jsonData.result[0].UP_NM) {
+                                        this.childNodes[0].click(); // 마스터 열어주고..
+
+
+                                        for (var i = 0; i < this.children[1].children.length; i++) {
+                                            var subName = $.trim(this.children[1].children[i].textContent);
+
+                                            if (subName != undefined && subName == jsonData.result[0].CHILDE_NM) {
+                                                $(this.children[1].children[i].children).addClass('navbar_active_color');
+                                            }
+                                            else {
+                                                $(this.children[1].children[i].children).removeClass('navbar_active_color');
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    },
+                    beforeSend: function () {
+                        //$('.wrap-loading').removeClass('display-none');
+                    },
+                    complete: function () {
+                        //$('.wrap-loading').addClass('display-none');
+                    },
+                    error: function (request, status, error) {
+                        fn_error(request.responseText);
+                    }
+                });
+            }
+            else {
+                $('#main_Top_Path_UP').text('Main');
+                $('#main_Top_Path_CH').text('Main');
+            }
+        }
+    </script>
+    
+
+    <%--***********************************************************************************************/
+        /* 콘텍스트 메뉴
+        /***********************************************************************************************/--%>
+    <ul id="contextMenu" style="display: none; position: absolute">
+        <li style="background-color: #fafafa; text-align: center;">Menu</li>
+        <li>Excel Download</li>
+    </ul>
+    <%--***********************************************************************************************/
+        /* 로딩중
+        /***********************************************************************************************/--%>
+    <div class="wrap-loading display-none" style="z-index: 10000">
+        <div class="progress progress-striped active progress-bar-warning">
+            <div class="progress-bar progress-bar-warning" style="width: 100%; top: 0; left: 0;">Loding...</div>
+        </div>
+    </div>
+    <%--로딩중--%>
+
+
+    <%--***********************************************************************************************/
+        /* 모달- 성공 알림창
+        /***********************************************************************************************/--%>
+    <div class="modal fade info-center" id="modalAlert_success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <label id="lblAlertTitle" style="font-size: 1.3em;"></label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <%--***********************************************************************************************/
+        /* 모달- 실패 알림창
+        /***********************************************************************************************/--%>
+    <div class="modal fade" id="modalAlert_Error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <label id="lblAlertErrorTitle" style="font-size: 1.3em;">
+                            Error Msg : 
+                        </label>
+                    </h4>
+                </div>
+                <div class="modal-body" id="modal-body-alert">
+                    <textarea style="height: 300px; width: 100%; font-size: 1.2em;" id="txtModalAlert">
+
+                            </textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <%--***********************************************************************************************/
+        /* 모달- Mail
+        /***********************************************************************************************/--%>
+    <div class="modal fade" id="modalMailSend" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span style="font-weight: bold;">Mail Send</span>
+                    </h4>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-body">
+                    <div id="modal_Mail_row" class="" style="height: 660px; border: none;">
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <%--***********************************************************************************************/
+        /* 모달- Excel 업로드
+        /***********************************************************************************************/--%>
+    <div class="modal fade" id="modalExcelupload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span style="font-weight: bold;">Excel Upload</span>
+                    </h4>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-body">
+                    <div id="modal_Excelupload_row" class="row" style="height: 100px; border: none; background-color: #fafafa;">
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <%--***********************************************************************************************/
+        /* 모달- 파일 단건 업로드
+        /***********************************************************************************************/--%>
+    <div class="modal fade" id="modalfileupload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span style="font-weight: bold;">File Upload</span>
+                    </h4>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-body">
+                    <div id="modal_fileupload_row" class="row" style="height: 200px; border: none; ">
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+      <%--***********************************************************************************************/
+        /* 모달- 접수건보기
+        /***********************************************************************************************/--%>
+    <div class="modal fade" id="modalreg_data" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" style="width:90%; height:500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <%--<h4 class="modal-title">
+                        <span style="font-weight: bold;">검색</span>
+                    </h4>--%>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalreg_data_row" class="row" style="border: none; height:500px;">
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <%--***********************************************************************************************/
+        /* 모달- ReportView
+        /***********************************************************************************************/--%>
+    <div class="modal fade" id="modalReportView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span style="font-weight: bold;">ReportViewer</span>
+                    </h4>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-body" style="height: 500px; padding: 0; margin: 0;" id="modalReportView_row">
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script>
+        $(document).ready(function () {
+            
+        });
+    </script>
+</body>
+
+<script src="/Scripts/jquery.slickgrid.export.excel.js"></script>
+<script src="/Scripts/excelexportjs.js"></script>
+    <script>
+        /***********************************************************************************************/
+        /* 부트스트랩 컨펌
+        /***********************************************************************************************/
+        var Common = {};
+        Common.Dialog = {
+            /**
+            * Dialog Id
+            */
+            DialogInfo: {
+                titleId: 'common-modal-title',
+                okBtnId: 'common-modal-ok-btn',
+            },
+
+            /**
+            * Default Item Message
+            */
+            Message: {
+                title: 'Confirm',
+                ok: 'Yes',
+                cancel: 'No'
+            },
+
+            /**
+            * Element 생성
+            *
+            * @param elementTag Element Tag
+            * @param attributeData Set Attribute Object
+            * @param appendElement AppendChild Element Object
+            * @return Element Object    
+            */
+            createElement: function (elementTag, attributeData, appendElement) {
+                // Element 생성
+                var elementObj = document.createElement(elementTag);
+                // Attrbute 추가
+                for (var key in attributeData) {
+                    //console.log(key, attrbutes[key]);
+                    elementObj.setAttribute(key, attributeData[key]);
+                };
+                // Element Append        
+                if (appendElement) {
+                    appendElement.appendChild(elementObj);
+                }
+
+                return elementObj;
+            },
+
+            /**
+            * Modal Dialog Make
+            */
+            makeModalDialog: function (data) {
+                // UUID 생성
+                var uuid;
+                if (typeof (Util) === 'object' && typeof (Util.uuid) === 'function') {
+                    uuid = Util.uuid();
+                } else {
+                    uuid = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                        return v.toString(16);
+                    });
+                }
+
+                // Dialog Id
+                data.dialogId = 'common-modal-dialog-' + data.dialogType + '-' + uuid;
+
+                /***************************************************************************/
+                // ---------------- Modal Main Div ----------------
+                var modalDiv = this.createElement('div'
+                    , { 'id': data.dialogId, 'class': 'modal fase', 'tabindex': '-1', 'role': 'dialog', 'aria-labelledby': this.DialogInfo.titleId, 'aria-hidden': 'true' }
+                    , document.body);
+                var modalDialogDiv = this.createElement('div', { 'class': 'modal-dialog' }, modalDiv);
+                var modalContentDiv = this.createElement('div', { 'class': 'modal-content' }, modalDialogDiv);
+
+                // ---------------- Modal Header ----------------
+                var modalHeaderDiv = this.createElement('div', { 'class': 'modal-header' }, modalContentDiv);
+
+                // Close Header
+                if (data.closeBtn) {
+                    //var modalHeaderCloseBtn = this.createElement('button', { 'type': 'button', 'class': 'close', 'data-dismiss': 'modal', 'aria-hidden': 'true' }, modalHeaderDiv);
+                    //modalHeaderCloseBtn.innerHTML = 'x';
+                }
+
+                // title
+                var modalHeaderTitle = this.createElement('h4', { 'class': 'modal-title', 'id': this.DialogInfo.titleId}, modalHeaderDiv);
+                modalHeaderTitle.innerHTML = data.title ? data.title : this.Message.title;
+
+                // ---------------- Modal Body ----------------
+                var modalBodyDiv = this.createElement('div', { 'class': 'modal-body', 'style': 'word-break: break-all', 'style': 'font-weight:bold; font-size:17px;' }, modalContentDiv);;
+                modalBodyDiv.innerHTML = data.content ? data.content : '';
+
+                // ---------------- Modal Footer ----------------
+                var modalFooterDiv = this.createElement('div', { 'class': 'modal-footer' }, modalContentDiv);
+                // Cancle Button
+                if (data.dialogType == 'confirm') {
+                    var modalFooterCancleBtn = this.createElement('button', { 'type': 'button', 'class': 'btn btn-default btn-sm', 'data-dismiss': 'modal', 'style' : 'min-width: 80px; min-height: 35px; text-align: center;' }, modalFooterDiv);
+                    modalFooterCancleBtn.innerHTML = this.Message.cancel;
+                }
+                // Ok Button
+                var modalFooterOkAttr = { 'type': 'button', 'class': 'btn btn-success btn-sm', 'id': this.DialogInfo.okBtnId, 'style': 'min-width: 80px; min-height: 35px; text-align: center;' };
+                if (data.dialogType == 'alert') {
+                    modalFooterOkAttr['data-dismiss'] = 'modal';
+                }
+                var modalFooterOkBtn = this.createElement('button', modalFooterOkAttr, modalFooterDiv);
+                modalFooterOkBtn.innerHTML = this.Message.ok;
+                /***************************************************************************/
+                // Modal Default option Setting        
+                var modalOption = {
+                    keyboard: false // ESC 키 눌렀을때 모달을 닫음
+                    , backdrop: 'static' // 모달의 배경을 포함. 클릭 시 모달을 닫지 않을 시 'static'
+                    , show: false // 초기화 시 모달을 보여줍니다.
+                }
+                // 사용자 지정 정보 설정
+                $.extend(modalOption, data);
+
+                // Jquery Dialog 변수 선언
+                var dialog = $('#' + data.dialogId);
+
+                // Bootstrap Modal Setting
+                dialog.modal(modalOption)
+
+                // Modal의 hide가 완료된 이후 Event 실행
+                dialog.on('hidden.bs.modal', function (e) {
+                    // Modal Element 제거
+                    dialog.remove();
+                });
+
+                // Confirm 일 경우 확인 버튼 클릭 이벤트 지정
+                if (data.dialogType == 'confirm') {
+                    dialog.find(" #" + this.DialogInfo.okBtnId).on('click', function () {
+                        // ok button event function 실행
+                        if (data.ok && typeof (data.ok) === 'function') {
+                            data.ok();
+                        } else {
+                            console.warn('not function ok event. dialogId: ' + data.dialogId);
+                        }
+
+                        // Modal 창 닫기
+                        dialog.modal('hide');
+                        // click enevt 제거
+                        $(this).off('click');
+                        $("body").css("padding-right", "0");
+                    });
+                }
+
+                // Modal Dialog Show
+                dialog.modal('show');
+                $("body").css("padding-right", "0");
+            },
+
+            /**
+            * Modal Dialog Show
+            */
+            show: function (type, data) {
+                if (!data) { data = {}; }
+                data.dialogType = type ? type : 'alert';
+                this.makeModalDialog(data);
+            },
+
+            /**
+            * Alert Modal Dialog
+            *
+            * data: 
+            *  title: Dialog Title Message
+            *  content: Dialog Content Message
+            *  closeBtn: Header Close Btn(x)
+            *  
+            */
+            alert: function (data) {
+                // data가 Object 가 아닌 경우 content 로 설정한다.
+                if (typeof (data) != 'object') {
+                    var content = data;
+                    data = { content: content };
+                }
+                this.show('alert', data);
+            },
+
+            /**
+            * Confirm Modal Dialog
+            *
+            * data: 
+            *  title: Dialog Title Message
+            *  content: Dialog Content Message
+            *  ok: Ok Button Click Event function
+            *  closeBtn: Header Close Btn(x)
+            *  
+            */
+            confirm: function (data) {
+                this.show('confirm', data);
+            }
+        };
+
+        /***********************************************************************************************/
+        /* 부트스트랩 컨펌 끝
+        /***********************************************************************************************/
+    </script>
+</html>
